@@ -59,6 +59,7 @@ def init_items():
           bot_item = "x"
       else:
           print('Повторите')
+    print(f'Вы за: {user_item}, Бот за {bot_item}')
     return user_item, bot_item
 
 def set_cell(item,choice):
@@ -197,7 +198,6 @@ while count < 11:
     print(f'Ход: {count}')
     set_cell(f'{user_item}', msg_from_user())
     view_matrix()
-    print(check_winner(user_item))
     if check_winner(user_item):
         print(f'Победили: {user_item}')
         break
@@ -205,7 +205,7 @@ while count < 11:
     if not check_tie():
         print('Ничья')
         break
-
+    
     set_cell(f'{bot_item}', de_coder_bot_msg(bot(bot_item, user_item)))
     view_matrix()
     if check_winner(bot_item):
